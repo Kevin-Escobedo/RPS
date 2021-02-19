@@ -43,59 +43,62 @@ std::string RPS::getUserInput()
     return playerMove;
 }
 
-void RPS::play()
+void RPS::play(const int trials)
 {
-    std::string cpuMove = makeMove();
-    std::string humanMove = getUserInput();
-
-    lastPlayerMove = humanMove;
-
-    if(cpuMove == humanMove)
+    for(int i = 0; i < trials; i++)
     {
-        result = 0;
+        std::string cpuMove = makeMove();
+        std::string humanMove = getUserInput();
+
+        lastPlayerMove = humanMove;
+
+        if(cpuMove == humanMove)
+        {
+            result = 0;
+        }
+
+        //TODO: Optimize
+        if(cpuMove == "Rock")
+        {
+            if(humanMove == "Paper")
+            {
+                result = -1;
+            }
+
+            if(humanMove == "Scissors")
+            {
+                result = 1;
+            }
+        }
+
+        if(cpuMove == "Paper")
+        {
+            if(humanMove == "Rock")
+            {
+                result = 1;
+            }
+
+            if(humanMove == "Scissors")
+            {
+                result = -1;
+            }
+        }
+
+        if(cpuMove == "Scissors")
+        {
+            if(humanMove == "Rock")
+            {
+                result = -1;
+            }
+
+            if(humanMove == "Paper")
+            {
+                result = 1;
+            }
+        }
+
+        showResult();
     }
-
-    //TODO: Optimize
-    if(cpuMove == "Rock")
-    {
-        if(humanMove == "Paper")
-        {
-            result = -1;
-        }
-
-        if(humanMove == "Scissors")
-        {
-            result = 1;
-        }
-    }
-
-    if(cpuMove == "Paper")
-    {
-        if(humanMove == "Rock")
-        {
-            result = 1;
-        }
-
-        if(humanMove == "Scissors")
-        {
-            result = -1;
-        }
-    }
-
-    if(cpuMove == "Scissors")
-    {
-        if(humanMove == "Rock")
-        {
-            result = -1;
-        }
-
-        if(humanMove == "Paper")
-        {
-            result = 1;
-        }
-    }
-
-    showResult();
 }
 
 void RPS::showResult()

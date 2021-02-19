@@ -16,7 +16,7 @@ public:
     RPS& operator =(const RPS& rps);
     ~RPS();
     std::string getUserInput();
-    void play();
+    void play(const int trials);
     void showResult();
 
 private:
