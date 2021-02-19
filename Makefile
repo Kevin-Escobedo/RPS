@@ -1,7 +1,7 @@
 CC=g++
 WC=x86_64-w64-mingw32-g++
 
-CFLAGS=-std=c++11 -g -Wpedantic -Wall -Werror -Wextra -Weffc++ -Wzero-as-null-pointer-constant
+CFLAGS=-std=c++17 -Wpedantic -Wall -Werror -Wextra -Weffc++ -Wzero-as-null-pointer-constant
 LIBS=-static-libgcc -static-libstdc++
 OPTIMIZE=-O2
 
